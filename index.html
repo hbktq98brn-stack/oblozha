@@ -2,37 +2,29 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>Обложка канала · люди. смыслы. технологии.</title>
-
-<!-- Премиальный шрифт с поддержкой кириллицы -->
+<title>Обложка канала · Техно-стиль</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@800;900&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
-
   body {
     min-height: 100vh;
     display: grid;
     place-items: center;
     padding: 24px;
-    background:
-      radial-gradient(circle at 25% 10%, #ffffff 0%, #f1ebe2 55%, #e5ddd0 100%);
-    font-family: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    background: #f0f0f0; /* Нейтральный фон подложки */
   }
 
-  /* Круглый контейнер: реальный размер обложки канала */
+  /* Круглый контейнер обложки */
   .cover {
-    width: min(88vmin, 900px);
+    width: min(90vmin, 800px);
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     overflow: hidden;
-    box-shadow:
-      0 50px 90px -40px rgba(80, 60, 40, 0.40),
-      0 25px 50px -25px rgba(80, 60, 40, 0.22),
-      0 0 0 1px rgba(255, 255, 255, 0.7) inset;
+    box-shadow: 0 20px 50px -20px rgba(0,0,0,0.15);
+    background: #ffffff;
   }
   .cover svg { display: block; width: 100%; height: 100%; }
 </style>
@@ -43,139 +35,50 @@
 <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"
      role="img" aria-label="люди. смыслы. технологии.">
   <defs>
-    <!-- Круглая маска -->
-    <clipPath id="clip">
+    <!-- Маска для идеального круга -->
+    <clipPath id="circleClip">
       <circle cx="500" cy="500" r="500"/>
     </clipPath>
-
-    <!-- Базовый светлый фон с мягким смещением -->
-    <radialGradient id="bg" cx="38%" cy="32%" r="85%">
-      <stop offset="0%"   stop-color="#FDFBF7"/>
-      <stop offset="45%"  stop-color="#F5EFE6"/>
-      <stop offset="100%" stop-color="#E8DFD2"/>
-    </radialGradient>
-
-    <!-- Мягкие сферы (тёплая / холодная / лиловая палитра) -->
-    <radialGradient id="orbWarm" cx="50%" cy="50%" r="50%">
-      <stop offset="0%"   stop-color="#FFD5AE" stop-opacity="0.95"/>
-      <stop offset="45%"  stop-color="#FFC49A" stop-opacity="0.55"/>
-      <stop offset="100%" stop-color="#FFC49A" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="orbCool" cx="50%" cy="50%" r="50%">
-      <stop offset="0%"   stop-color="#C8D9F2" stop-opacity="0.90"/>
-      <stop offset="50%"  stop-color="#B6C9E6" stop-opacity="0.40"/>
-      <stop offset="100%" stop-color="#B6C9E6" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="orbLilac" cx="50%" cy="50%" r="50%">
-      <stop offset="0%"   stop-color="#E5D2E8" stop-opacity="0.85"/>
-      <stop offset="100%" stop-color="#E5D2E8" stop-opacity="0"/>
-    </radialGradient>
-
-    <!-- Тонкие декоративные кольца -->
-    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%"   stop-color="#C7A77C" stop-opacity="0.55"/>
-      <stop offset="50%"  stop-color="#8B7355" stop-opacity="0.25"/>
-      <stop offset="100%" stop-color="#C7A77C" stop-opacity="0"/>
-    </linearGradient>
-
-    <!-- "Чернила" — градиент для текста -->
-    <linearGradient id="ink" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"   stop-color="#2E2620"/>
-      <stop offset="100%" stop-color="#1A1512"/>
-    </linearGradient>
-
-    <!-- Акцент — золото -->
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%"   stop-color="#C7A77C"/>
-      <stop offset="100%" stop-color="#8B6E48"/>
-    </linearGradient>
-
-    <!-- Блюры для мягких сфер -->
-    <filter id="blur60" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="60"/>
-    </filter>
-    <filter id="blur40" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="40"/>
-    </filter>
-
-    <!-- Зерно / premium-текстура -->
-    <filter id="grain" x="0" y="0" width="100%" height="100%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"/>
-      <feColorMatrix values="0 0 0 0 0.35
-                             0 0 0 0 0.28
-                             0 0 0 0 0.20
-                             0 0 0 0.10 0"/>
-    </filter>
-
-    <!-- Виньетка -->
-    <radialGradient id="vignette" cx="50%" cy="50%" r="50%">
-      <stop offset="60%"  stop-color="#000000" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#6b5842" stop-opacity="0.18"/>
-    </radialGradient>
-
-    <!-- Точечный паттерн для tech-акцента -->
-    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
-      <circle cx="2" cy="2" r="1" fill="#8B7355" opacity="0.35"/>
-    </pattern>
-    <radialGradient id="dotsFade" cx="50%" cy="50%" r="50%">
-      <stop offset="0%"   stop-color="#ffffff" stop-opacity="1"/>
-      <stop offset="70%"  stop-color="#ffffff" stop-opacity="0.35"/>
-      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
-    </radialGradient>
-    <mask id="dotsMask">
-      <circle cx="220" cy="800" r="280" fill="url(#dotsFade)"/>
-    </mask>
   </defs>
 
-  <g clip-path="url(#clip)">
-    <!-- Фон -->
-    <rect width="1000" height="1000" fill="url(#bg)"/>
+  <g clip-path="url(#circleClip)">
+    <!-- Чистый белый фон -->
+    <rect width="1000" height="1000" fill="#ffffff"/>
 
-    <!-- Мягкие сферы -->
-    <circle cx="800" cy="210" r="340" fill="url(#orbWarm)"  filter="url(#blur60)"/>
-    <circle cx="150" cy="850" r="320" fill="url(#orbCool)"  filter="url(#blur60)"/>
-    <circle cx="180" cy="150" r="230" fill="url(#orbLilac)" filter="url(#blur40)"/>
-    <circle cx="880" cy="780" r="180" fill="url(#orbWarm)"  filter="url(#blur40)" opacity="0.65"/>
+    <!-- Вся графическая композиция повернута по диагонали -->
+    <g transform="translate(500, 500) rotate(-35) translate(-500, -500)">
+      
+      <!-- Лаймовая линия (змейка) -->
+      <!-- Используем path с толстым stroke и закругленными концами -->
+      <path d="M 150 750 
+               C 300 500, 450 400, 500 400 
+               C 550 400, 550 650, 600 650 
+               C 700 650, 750 300, 850 200" 
+            fill="none" 
+            stroke="#C1FF00" 
+            stroke-width="120" 
+            stroke-linecap="round" 
+            stroke-linejoin="round"/>
 
-    <!-- Текстура точек (tech) -->
-    <rect width="1000" height="1000" fill="url(#dots)" mask="url(#dotsMask)"/>
-
-    <!-- Тонкие декоративные кольца -->
-    <circle cx="500" cy="500" r="470" fill="none" stroke="url(#ring)" stroke-width="1"/>
-    <circle cx="500" cy=" это500" r="436" fill="none" stroke="url(#ring)" работает stroke-width="0.7" opacity="0.6"/>
-    <circle cx="500" cy="500" r="404" fill="none" stroke="url(#ring)" stroke-width="0.4" opacity="0.35"/>
-
-    <!-- Верхний акцент — три точки -->
-    <g>
-      <circle cx="470" cy="235" r="2.5" fill="url(#accent)"/>
-      <circle cx="500" cy="235" r="3.5" fill="url(#accent)"/>
-      <circle cx="530" cy="235" r="2.5" fill="url(#accent)"/>
+      <!-- Текстовая группа -->
+      <g font-family="'Manrope', 'Arial Black', sans-serif" 
+         font-weight="900" 
+         font-size="120" 
+         fill="#000000" 
+         text-anchor="middle" 
+         letter-spacing="2">
+        
+        <!-- Строка 1 -->
+        <text x="500" y="360">люди<tspan fill="#C1FF00">.</tspan></text>
+        
+        <!-- Строка 2 -->
+        <text x="500" y="500">смыслы<tspan fill="#C1FF00">.</tspan></text>
+        
+        <!-- Строка 3 -->
+        <text x="500" y="640">технологии<tspan fill="#C1FF00">.</tspan></text>
+        
+      </g>
     </g>
-
-    <!-- Главная типографика -->
-    <g font-family="'Manrope', 'Inter', system-ui, sans-serif" text-anchor="middle">
-      <text x="500" y="380"
-            font-size="108" font-weight="300"
-            fill="url(#ink)" letter-spacing="4">люди<tspan fill="url(#accent)" font-weight="400">.</tspan></text>
-
-      <text x="500" y="510"
-            font-size="108" font-weight="300"
-            fill="url(#ink)" letter-spacing="4">смыслы<tspan fill="url(#accent)" font-weight="400">.</tspan></text>
-
-      <text x="500" y="640"
-            font-size="108" font-weight="300"
-            fill="url(#ink)" letter-spacing="4">технологии<tspan fill="url(#accent)" font-weight="400">.</tspan></text>
-    </g>
-
-    <!-- Нижний акцент — тонкая линия -->
-    <line x1="410" y1="700" x2="590" y2="700"
-          stroke="url(#ring)" stroke-width="1" opacity="0.65"/>
-
-    <!-- Виньетка -->
-    <rect width="1000" height="1000" fill="url(#vignette)"/>
-
-    <!-- Зерно -->
-    <rect width="1000" height="1000" filter="url(#grain)" opacity="0.7"/>
   </g>
 </svg>
 </div>
